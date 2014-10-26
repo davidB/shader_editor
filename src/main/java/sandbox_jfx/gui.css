@@ -1,0 +1,8 @@
+/* see
+ * http://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html
+ * http://docs.oracle.com/javafx/2/css_tutorial/jfxpub-css_tutorial.htm
+ */
+ttip{
+	-fx-background-radius: 0 0 0 0;
+	-fx-background-color:  linear-gradient(greenyellow   , limegreen );
+}

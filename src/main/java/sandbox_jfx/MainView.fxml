@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.controlsfx.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sandbox_jfx.MainView">
+   <children>
+      <SplitPane dividerPositions="0.5" prefHeight="541.0" prefWidth="808.0">
+         <items>
+            <SplitPane dividerPositions="0.5417439703153989" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+              <items>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <VBox minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fx:id="image" fitHeight="292.0" fitWidth="403.0" focusTraversable="true" pickOnBounds="true" smooth="false" />
+                           </children>
+                        </VBox>
+                     </center>
+                     <right>
+                        <Slider fx:id="rotY" max="180.0" min="-180.0" orientation="VERTICAL" BorderPane.alignment="CENTER" />
+                     </right>
+                     <bottom>
+                        <Slider fx:id="rotX" max="180.0" min="-180.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                     <top>
+                        <ToolBar focusTraversable="false" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <items>
+                            <Button fx:id="refresh" mnemonicParsing="false" text="refresh" />
+                          </items>
+                        </ToolBar>
+                     </top>
+                  </BorderPane>
+                  <Accordion>
+                    <panes>
+                      <TitledPane animated="false" text="3D Viewer">
+                           <content>
+                              <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="NEVER" />
+                                  <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints fillHeight="false" maxHeight="116.0" minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                                    <RowConstraints fillHeight="false" maxHeight="116.0" minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                                    <RowConstraints fillHeight="false" maxHeight="116.0" minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label prefHeight="15.0" prefWidth="83.0" text="Geometrie" />
+                                    <ComboBox fx:id="geometries" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                                    <ColorPicker fx:id="bgColor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label text="Background" GridPane.rowIndex="1" />
+                                    <Label text="Show Stats" GridPane.rowIndex="2" />
+                                    <CheckBox fx:id="showStats" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                      <TitledPane fx:id="matParamsPane" animated="false" text="Material Params" />
+                    </panes>
+                  </Accordion>
+              </items>
+            </SplitPane>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+              <items>
+                  <BorderPane fx:id="editorHost" prefHeight="200.0" prefWidth="200.0" />
+                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="log">
+                           <content>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <center>
+                                    <TextArea fx:id="log" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="266.0" prefWidth="399.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                           </content>
+                      </Tab>
+                      <Tab text="vertex.glsl">
+                           <content>
+                              <BorderPane>
+                                 <center>
+                                    <TextArea fx:id="vertex_glsl" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                           </content>
+                      </Tab>
+                        <Tab text="fragment.glsl">
+                           <content>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <center>
+                                    <TextArea fx:id="fragment_glsl" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+              </items>
+            </SplitPane>
+         </items>
+      </SplitPane>
+   </children>
+</StackPane>
